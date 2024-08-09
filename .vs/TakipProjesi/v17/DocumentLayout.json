@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\emrec\\source\\repos\\TakipProjesi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{47732AEA-CD34-4E91-8A9E-2CAA2C9A01A3}|TakipProjesi\\TakipProjesi.csproj|c:\\users\\emrec\\source\\repos\\takipprojesi\\takipprojesi\\formlar\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{47732AEA-CD34-4E91-8A9E-2CAA2C9A01A3}|TakipProjesi\\TakipProjesi.csproj|solutionrelative:takipprojesi\\formlar\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47732AEA-CD34-4E91-8A9E-2CAA2C9A01A3}|TakipProjesi\\TakipProjesi.csproj|C:\\Users\\emrec\\source\\repos\\TakipProjesi\\takipprojesi\\formlar\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47732AEA-CD34-4E91-8A9E-2CAA2C9A01A3}|TakipProjesi\\TakipProjesi.csproj|solutionrelative:takipprojesi\\formlar\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47732AEA-CD34-4E91-8A9E-2CAA2C9A01A3}|TakipProjesi\\TakipProjesi.csproj|C:\\Users\\emrec\\source\\repos\\TakipProjesi\\takipprojesi\\entity\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{47732AEA-CD34-4E91-8A9E-2CAA2C9A01A3}|TakipProjesi\\TakipProjesi.csproj|solutionrelative:takipprojesi\\entity\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 344,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\emrec\\source\\repos\\TakipProjesi\\TakipProjesi\\Formlar\\MainForm.cs",
+              "RelativeDocumentMoniker": "TakipProjesi\\Formlar\\MainForm.cs",
+              "ToolTip": "C:\\Users\\emrec\\source\\repos\\TakipProjesi\\TakipProjesi\\Formlar\\MainForm.cs",
+              "RelativeToolTip": "TakipProjesi\\Formlar\\MainForm.cs",
+              "ViewState": "AQIAALsAAAAAAAAAAAAqwMMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T06:21:33.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\emrec\\source\\repos\\TakipProjesi\\TakipProjesi\\Entity\\Model1.edmx",
+              "RelativeDocumentMoniker": "TakipProjesi\\Entity\\Model1.edmx",
+              "ToolTip": "C:\\Users\\emrec\\source\\repos\\TakipProjesi\\TakipProjesi\\Entity\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "TakipProjesi\\Entity\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-08-08T14:45:28.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\emrec\\source\\repos\\TakipProjesi\\TakipProjesi\\Formlar\\MainForm.cs",
+              "RelativeDocumentMoniker": "TakipProjesi\\Formlar\\MainForm.cs",
+              "ToolTip": "C:\\Users\\emrec\\source\\repos\\TakipProjesi\\TakipProjesi\\Formlar\\MainForm.cs [Design]",
+              "RelativeToolTip": "TakipProjesi\\Formlar\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T14:14:06.257Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

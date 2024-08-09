@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="tr-TR">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <SqlDataSource Name="SQL Data Source 1" ComponentName="dashboardSqlDataSource2">
+      <Connection Name="seyma\sqlexpress.SatisDB.dbo" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="SalesRepresentativeTBL">
+        <Tables>
+          <Table Name="SalesRepresentativeTBL" X="30" Y="30" Width="125" Height="208" />
+          <Table Name="SalesTBL" X="185" Y="30" Width="125" Height="268" />
+          <Table Name="ProductTBL" X="340" Y="30" Width="125" Height="208" />
+          <Table Name="CustomerTBL" X="495" Y="30" Width="125" Height="228" />
+          <Table Name="SalesRepresentativeTBL" Alias="SalesRepresentativeTBL_1" X="650" Y="30" Width="125" Height="208" />
+          <Table Name="CategoryTBL" X="805" Y="30" Width="125" Height="108" />
+          <Relation Type="Inner" Parent="SalesRepresentativeTBL" Nested="SalesTBL">
+            <KeyColumn Parent="SalesRepID" Nested="SalesRapID" />
+          </Relation>
+          <Relation Type="Inner" Parent="SalesTBL" Nested="ProductTBL">
+            <KeyColumn Parent="ProductID" Nested="ProductID" />
+          </Relation>
+          <Relation Type="Inner" Parent="SalesTBL" Nested="CustomerTBL">
+            <KeyColumn Parent="CustomerID" Nested="CustomerID" />
+          </Relation>
+          <Relation Type="Inner" Parent="SalesTBL" Nested="SalesRepresentativeTBL_1">
+            <KeyColumn Parent="SalesRapID" Nested="SalesRepID" />
+          </Relation>
+          <Relation Type="Inner" Parent="ProductTBL" Nested="CategoryTBL">
+            <KeyColumn Parent="CategoryID" Nested="CategoryID" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <Column Table="SalesRepresentativeTBL" Name="SalesRepID" />
+          <Column Table="SalesRepresentativeTBL" Name="FirstName" />
+          <Column Table="SalesRepresentativeTBL" Name="LastName" />
+          <Column Table="SalesRepresentativeTBL" Name="Email" />
+          <Column Table="SalesRepresentativeTBL" Name="Phone" />
+          <Column Table="SalesRepresentativeTBL" Name="HireDate" />
+          <Column Table="SalesRepresentativeTBL" Name="Region" />
+          <Column Table="SalesTBL" Name="SaleID" />
+          <Column Table="SalesTBL" Name="CustomerID" />
+          <Column Table="SalesTBL" Name="ProductID" />
+          <Column Table="SalesTBL" Name="SaleDate" />
+          <Column Table="SalesTBL" Name="Quantity" />
+          <Column Table="SalesTBL" Name="TotalAmount" />
+          <Column Table="SalesTBL" Name="PaymentMethod" />
+          <Column Table="SalesTBL" Name="ShippingAddress" />
+          <Column Table="SalesTBL" Name="Status" />
+          <Column Table="SalesTBL" Name="SalesRapID" />
+          <Column Table="ProductTBL" Name="ProductID" Alias="ProductTBL_ProductID" />
+          <Column Table="ProductTBL" Name="ProductName" />
+          <Column Table="ProductTBL" Name="Marka" />
+          <Column Table="ProductTBL" Name="CategoryID" />
+          <Column Table="ProductTBL" Name="Price" />
+          <Column Table="ProductTBL" Name="StockQuantity" />
+          <Column Table="ProductTBL" Name="Desccription" />
+          <Column Table="CustomerTBL" Name="CustomerID" Alias="CustomerTBL_CustomerID" />
+          <Column Table="CustomerTBL" Name="FirstName" Alias="CustomerTBL_FirstName" />
+          <Column Table="CustomerTBL" Name="LastName" Alias="CustomerTBL_LastName" />
+          <Column Table="CustomerTBL" Name="Email" Alias="CustomerTBL_Email" />
+          <Column Table="CustomerTBL" Name="Phone" Alias="CustomerTBL_Phone" />
+          <Column Table="CustomerTBL" Name="Address" />
+          <Column Table="CustomerTBL" Name="Country" />
+          <Column Table="CustomerTBL" Name="RegistirationDate" />
+          <Column Table="SalesRepresentativeTBL_1" Name="SalesRepID" Alias="SalesRepresentativeTBL_1_SalesRepID" />
+          <Column Table="SalesRepresentativeTBL_1" Name="FirstName" Alias="SalesRepresentativeTBL_1_FirstName" />
+          <Column Table="SalesRepresentativeTBL_1" Name="LastName" Alias="SalesRepresentativeTBL_1_LastName" />
+          <Column Table="SalesRepresentativeTBL_1" Name="Email" Alias="SalesRepresentativeTBL_1_Email" />
+          <Column Table="SalesRepresentativeTBL_1" Name="Phone" Alias="SalesRepresentativeTBL_1_Phone" />
+          <Column Table="SalesRepresentativeTBL_1" Name="HireDate" Alias="SalesRepresentativeTBL_1_HireDate" />
+          <Column Table="SalesRepresentativeTBL_1" Name="Region" Alias="SalesRepresentativeTBL_1_Region" />
+          <Column Table="CategoryTBL" Name="CategoryID" Alias="CategoryTBL_CategoryID" />
+          <Column Table="CategoryTBL" Name="CategoryName" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 1">
+          <View Name="SalesRepresentativeTBL">
+            <Field Name="SalesRepID" Type="Int32" />
+            <Field Name="FirstName" Type="String" />
+            <Field Name="LastName" Type="String" />
+            <Field Name="Email" Type="String" />
+            <Field Name="Phone" Type="String" />
+            <Field Name="HireDate" Type="DateTime" />
+            <Field Name="Region" Type="String" />
+            <Field Name="SaleID" Type="Int32" />
+            <Field Name="CustomerID" Type="Int32" />
+            <Field Name="ProductID" Type="Int32" />
+            <Field Name="SaleDate" Type="DateTime" />
+            <Field Name="Quantity" Type="Int32" />
+            <Field Name="TotalAmount" Type="Decimal" />
+            <Field Name="PaymentMethod" Type="String" />
+            <Field Name="ShippingAddress" Type="String" />
+            <Field Name="Status" Type="String" />
+            <Field Name="SalesRapID" Type="Int32" />
+            <Field Name="ProductTBL_ProductID" Type="Int32" />
+            <Field Name="ProductName" Type="String" />
+            <Field Name="Marka" Type="String" />
+            <Field Name="CategoryID" Type="Int32" />
+            <Field Name="Price" Type="Decimal" />
+            <Field Name="StockQuantity" Type="Int32" />
+            <Field Name="Desccription" Type="String" />
+            <Field Name="CustomerTBL_CustomerID" Type="Int32" />
+            <Field Name="CustomerTBL_FirstName" Type="String" />
+            <Field Name="CustomerTBL_LastName" Type="String" />
+            <Field Name="CustomerTBL_Email" Type="String" />
+            <Field Name="CustomerTBL_Phone" Type="String" />
+            <Field Name="Address" Type="String" />
+            <Field Name="Country" Type="String" />
+            <Field Name="RegistirationDate" Type="DateTime" />
+            <Field Name="SalesRepresentativeTBL_1_SalesRepID" Type="Int32" />
+            <Field Name="SalesRepresentativeTBL_1_FirstName" Type="String" />
+            <Field Name="SalesRepresentativeTBL_1_LastName" Type="String" />
+            <Field Name="SalesRepresentativeTBL_1_Email" Type="String" />
+            <Field Name="SalesRepresentativeTBL_1_Phone" Type="String" />
+            <Field Name="SalesRepresentativeTBL_1_HireDate" Type="DateTime" />
+            <Field Name="SalesRepresentativeTBL_1_Region" Type="String" />
+            <Field Name="CategoryTBL_CategoryID" Type="Int32" />
+            <Field Name="CategoryName" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Onaylanmayan Satışlar" DataSource="dashboardSqlDataSource2" DataMember="SalesRepresentativeTBL">
+      <DataItems>
+        <Dimension DataMember="Address" Name="Adres" DefaultId="DataItem4" />
+        <Dimension DataMember="Status" Name="Durum" DefaultId="DataItem5" />
+        <Dimension DataMember="ProductName" Name="Ürün" DefaultId="DataItem6" />
+        <Dimension DataMember="Status" DefaultId="DataItem7" />
+        <Dimension DataMember="CustomerTBL_FirstName" Name="Ad" DefaultId="DataItem1" />
+        <Dimension DataMember="CustomerTBL_Phone" Name="Telefon No" DefaultId="DataItem3" />
+        <Dimension DataMember="CustomerTBL_CustomerID" Name="Müşteri ID" DefaultId="DataItem0" />
+        <Dimension DataMember="CustomerTBL_LastName" Name="Soyad" DefaultId="DataItem2" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension DefaultId="DataItem7" />
+      </HiddenDimensions>
+      <GridColumns>
+        <GridDimensionColumn Weight="78.643724696356287" FixedWidth="16.063850402832031">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="75.455465587044543" FixedWidth="7.3273701667785645">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="59.514170040485844">
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="86.082995951417018">
+          <Dimension DefaultId="DataItem3" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="117.96558704453444">
+          <Dimension DefaultId="DataItem4" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="55.263157894736857">
+          <Dimension DefaultId="DataItem6" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="52.074898785425113">
+          <Dimension DefaultId="DataItem5" />
+        </GridDimensionColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+      <ColumnFilterOptions />
+    </Grid>
+    <Treemap ComponentName="treemapDashboardItem1" Name="Treemap 1" DataSource="dashboardSqlDataSource2" DataMember="SalesRepresentativeTBL">
+      <DataItems>
+        <Dimension DataMember="Marka" DefaultId="DataItem0" />
+        <Measure DataMember="SaleID" DefaultId="DataItem1" />
+      </DataItems>
+      <Values>
+        <Value DefaultId="DataItem1" />
+      </Values>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+    </Treemap>
+    <Card ComponentName="cardDashboardItem1" Name="Toplam Satış" DataSource="dashboardSqlDataSource2" DataMember="SalesRepresentativeTBL">
+      <DataItems>
+        <Measure DataMember="TotalAmount" DefaultId="DataItem0" />
+      </DataItems>
+      <Card>
+        <TargetValue DefaultId="DataItem0" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+        <LayoutTemplate Type="Stretched">
+          <TopValue Visible="true" ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue Visible="false" ValueType="Title" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 Visible="true" ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 Visible="true" ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <DeltaIndicator Visible="true" />
+          <Sparkline Visible="true" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" DataSource="dashboardSqlDataSource2" DataMember="SalesRepresentativeTBL">
+      <DataItems>
+        <Measure DataMember="TotalAmount" DefaultId="DataItem0" />
+        <Dimension DataMember="SaleDate" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Card ComponentName="cardDashboardItem2" Name="Cards 1" />
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Weight="100">
+      <LayoutGroup Orientation="Vertical" Weight="43.492063492063494">
+        <LayoutGroup Weight="24.663677130044842">
+          <LayoutItem DashboardItem="cardDashboardItem1" Weight="50.121654501216547" />
+          <LayoutItem DashboardItem="cardDashboardItem2" Weight="49.878345498783453" />
+        </LayoutGroup>
+        <LayoutItem DashboardItem="treemapDashboardItem1" Weight="75.336322869955154" />
+      </LayoutGroup>
+      <LayoutGroup Orientation="Vertical" Weight="56.507936507936506">
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="32.735426008968609" />
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="67.264573991031384" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

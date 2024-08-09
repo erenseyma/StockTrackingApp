@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e5017a4f6c234143b5b7bccd590e9bbf" Name="Diagram1">
+        <EntityTypeShape EntityType="SatisDBModel.Campaigns" Width="1.5" PointX="8.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.CategoryTBL" Width="1.5" PointX="1.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.CustomerTBL" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.InvetoryTransactionsTBL" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.OrdersTBL" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.Payments" Width="1.5" PointX="8.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.ProductTBL" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.SalesRepresentativeTBL" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.SalesTBL" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="SatisDBModel.FK_ProductTBL_CategoryTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="SatisDBModel.FK_OrdersTBL_CustomerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="SatisDBModel.FK_SalesTBL_CustomerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="SatisDBModel.FK_InvetoryTransactionsTBL_ProductTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="SatisDBModel.FK_SalesTBL_ProductTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="SatisDBModel.FK_SalesTBL_SalesRepresentativeTBL" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SatisDBModel.Users" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SatisDBModel.UserInfo" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SatisDBModel.AmbarTBL" Width="1.5" PointX="11.375" PointY="0.875" />
+        <AssociationConnector Association="SatisDBModel.FK_InvetoryTransactionsTBL_AmbarTBL" />
+        <AssociationConnector Association="SatisDBModel.FK_Payments_OrdersTBL" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

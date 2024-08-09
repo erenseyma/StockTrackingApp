@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SatisDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AmbarTBL">
+    <Key>
+      <PropertyRef Name="AmbarId" />
+    </Key>
+    <Property Name="AmbarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Konum" Type="nvarchar" MaxLength="50" />
+    <Property Name="Kapasite" Type="int" />
+    <Property Name="Sorumlu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Campaigns">
+    <Key>
+      <PropertyRef Name="CompaignID" />
+    </Key>
+    <Property Name="CompaignID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompaignName" Type="nvarchar" MaxLength="100" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="DiscountRate" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CategoryTBL">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CustomerTBL">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="12" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegistirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InvetoryTransactionsTBL">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="TransactionDate" Type="datetime" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="TransactionTyppe" Type="nvarchar" MaxLength="50" />
+    <Property Name="WareHouse" Type="int" />
+  </EntityType>
+  <EntityType Name="OrdersTBL">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="OrderStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShippingDate" Type="datetime" />
+    <Property Name="TrackingNumber" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="PaymentDate" Type="datetime" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="PaymentMethod" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductTBL">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Marka" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="StockQuantity" Type="int" />
+    <Property Name="Desccription" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SalesRepresentativeTBL">
+    <Key>
+      <PropertyRef Name="SalesRepID" />
+    </Key>
+    <Property Name="SalesRepID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="HireDate" Type="datetime" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SalesTBL">
+    <Key>
+      <PropertyRef Name="SaleID" />
+    </Key>
+    <Property Name="SaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="SaleDate" Type="datetime" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+    <Property Name="ShippingAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="SalesRapID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+    <Property Name="UserLast" Type="nvarchar" MaxLength="20" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="PasswordHash" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <Association Name="FK_InvetoryTransactionsTBL_AmbarTBL">
+    <End Role="AmbarTBL" Type="Self.AmbarTBL" Multiplicity="0..1" />
+    <End Role="InvetoryTransactionsTBL" Type="Self.InvetoryTransactionsTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AmbarTBL">
+        <PropertyRef Name="AmbarId" />
+      </Principal>
+      <Dependent Role="InvetoryTransactionsTBL">
+        <PropertyRef Name="WareHouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvetoryTransactionsTBL_ProductTBL">
+    <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="0..1" />
+    <End Role="InvetoryTransactionsTBL" Type="Self.InvetoryTransactionsTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTBL">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="InvetoryTransactionsTBL">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdersTBL_CustomerTBL">
+    <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
+    <End Role="OrdersTBL" Type="Self.OrdersTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerTBL">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="OrdersTBL">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_OrdersTBL">
+    <End Role="OrdersTBL" Type="Self.OrdersTBL" Multiplicity="1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="OrdersTBL">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="PaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductTBL_CategoryTBL">
+    <End Role="CategoryTBL" Type="Self.CategoryTBL" Multiplicity="0..1" />
+    <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryTBL">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ProductTBL">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesTBL_CustomerTBL">
+    <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
+    <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerTBL">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="SalesTBL">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesTBL_ProductTBL">
+    <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="0..1" />
+    <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTBL">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SalesTBL">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesTBL_SalesRepresentativeTBL">
+    <End Role="SalesRepresentativeTBL" Type="Self.SalesRepresentativeTBL" Multiplicity="0..1" />
+    <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesRepresentativeTBL">
+        <PropertyRef Name="SalesRepID" />
+      </Principal>
+      <Dependent Role="SalesTBL">
+        <PropertyRef Name="SalesRapID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SatisDBModelStoreContainer">
+    <EntitySet Name="AmbarTBL" EntityType="Self.AmbarTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Campaigns" EntityType="Self.Campaigns" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryTBL" EntityType="Self.CategoryTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerTBL" EntityType="Self.CustomerTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvetoryTransactionsTBL" EntityType="Self.InvetoryTransactionsTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersTBL" EntityType="Self.OrdersTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTBL" EntityType="Self.ProductTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesRepresentativeTBL" EntityType="Self.SalesRepresentativeTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesTBL" EntityType="Self.SalesTBL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_InvetoryTransactionsTBL_AmbarTBL" Association="Self.FK_InvetoryTransactionsTBL_AmbarTBL">
+      <End Role="AmbarTBL" EntitySet="AmbarTBL" />
+      <End Role="InvetoryTransactionsTBL" EntitySet="InvetoryTransactionsTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvetoryTransactionsTBL_ProductTBL" Association="Self.FK_InvetoryTransactionsTBL_ProductTBL">
+      <End Role="ProductTBL" EntitySet="ProductTBL" />
+      <End Role="InvetoryTransactionsTBL" EntitySet="InvetoryTransactionsTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdersTBL_CustomerTBL" Association="Self.FK_OrdersTBL_CustomerTBL">
+      <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+      <End Role="OrdersTBL" EntitySet="OrdersTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_OrdersTBL" Association="Self.FK_Payments_OrdersTBL">
+      <End Role="OrdersTBL" EntitySet="OrdersTBL" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductTBL_CategoryTBL" Association="Self.FK_ProductTBL_CategoryTBL">
+      <End Role="CategoryTBL" EntitySet="CategoryTBL" />
+      <End Role="ProductTBL" EntitySet="ProductTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesTBL_CustomerTBL" Association="Self.FK_SalesTBL_CustomerTBL">
+      <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+      <End Role="SalesTBL" EntitySet="SalesTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesTBL_ProductTBL" Association="Self.FK_SalesTBL_ProductTBL">
+      <End Role="ProductTBL" EntitySet="ProductTBL" />
+      <End Role="SalesTBL" EntitySet="SalesTBL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesTBL_SalesRepresentativeTBL" Association="Self.FK_SalesTBL_SalesRepresentativeTBL">
+      <End Role="SalesRepresentativeTBL" EntitySet="SalesRepresentativeTBL" />
+      <End Role="SalesTBL" EntitySet="SalesTBL" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

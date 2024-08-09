@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SatisDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AmbarTBL">
+          <Key>
+            <PropertyRef Name="AmbarId" />
+          </Key>
+          <Property Name="AmbarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Konum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kapasite" Type="int" />
+          <Property Name="Sorumlu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Campaigns">
+          <Key>
+            <PropertyRef Name="CompaignID" />
+          </Key>
+          <Property Name="CompaignID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompaignName" Type="nvarchar" MaxLength="100" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="DiscountRate" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="CategoryTBL">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerTBL">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="12" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegistirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvetoryTransactionsTBL">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="TransactionTyppe" Type="nvarchar" MaxLength="50" />
+          <Property Name="WareHouse" Type="int" />
+        </EntityType>
+        <EntityType Name="OrdersTBL">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="OrderStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShippingDate" Type="datetime" />
+          <Property Name="TrackingNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="PaymentMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProductTBL">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="StockQuantity" Type="int" />
+          <Property Name="Desccription" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SalesRepresentativeTBL">
+          <Key>
+            <PropertyRef Name="SalesRepID" />
+          </Key>
+          <Property Name="SalesRepID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="HireDate" Type="datetime" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SalesTBL">
+          <Key>
+            <PropertyRef Name="SaleID" />
+          </Key>
+          <Property Name="SaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="SaleDate" Type="datetime" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="ShippingAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesRapID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserLast" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <Association Name="FK_InvetoryTransactionsTBL_AmbarTBL">
+          <End Role="AmbarTBL" Type="Self.AmbarTBL" Multiplicity="0..1" />
+          <End Role="InvetoryTransactionsTBL" Type="Self.InvetoryTransactionsTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AmbarTBL">
+              <PropertyRef Name="AmbarId" />
+            </Principal>
+            <Dependent Role="InvetoryTransactionsTBL">
+              <PropertyRef Name="WareHouse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvetoryTransactionsTBL_ProductTBL">
+          <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="0..1" />
+          <End Role="InvetoryTransactionsTBL" Type="Self.InvetoryTransactionsTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTBL">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="InvetoryTransactionsTBL">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersTBL_CustomerTBL">
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
+          <End Role="OrdersTBL" Type="Self.OrdersTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTBL">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="OrdersTBL">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_OrdersTBL">
+          <End Role="OrdersTBL" Type="Self.OrdersTBL" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OrdersTBL">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="PaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductTBL_CategoryTBL">
+          <End Role="CategoryTBL" Type="Self.CategoryTBL" Multiplicity="0..1" />
+          <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryTBL">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="ProductTBL">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTBL_CustomerTBL">
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
+          <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTBL">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="SalesTBL">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTBL_ProductTBL">
+          <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="0..1" />
+          <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTBL">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="SalesTBL">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTBL_SalesRepresentativeTBL">
+          <End Role="SalesRepresentativeTBL" Type="Self.SalesRepresentativeTBL" Multiplicity="0..1" />
+          <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesRepresentativeTBL">
+              <PropertyRef Name="SalesRepID" />
+            </Principal>
+            <Dependent Role="SalesTBL">
+              <PropertyRef Name="SalesRapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SatisDBModelStoreContainer">
+          <EntitySet Name="AmbarTBL" EntityType="Self.AmbarTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Campaigns" EntityType="Self.Campaigns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryTBL" EntityType="Self.CategoryTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerTBL" EntityType="Self.CustomerTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvetoryTransactionsTBL" EntityType="Self.InvetoryTransactionsTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersTBL" EntityType="Self.OrdersTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTBL" EntityType="Self.ProductTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesRepresentativeTBL" EntityType="Self.SalesRepresentativeTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesTBL" EntityType="Self.SalesTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_InvetoryTransactionsTBL_AmbarTBL" Association="Self.FK_InvetoryTransactionsTBL_AmbarTBL">
+            <End Role="AmbarTBL" EntitySet="AmbarTBL" />
+            <End Role="InvetoryTransactionsTBL" EntitySet="InvetoryTransactionsTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvetoryTransactionsTBL_ProductTBL" Association="Self.FK_InvetoryTransactionsTBL_ProductTBL">
+            <End Role="ProductTBL" EntitySet="ProductTBL" />
+            <End Role="InvetoryTransactionsTBL" EntitySet="InvetoryTransactionsTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersTBL_CustomerTBL" Association="Self.FK_OrdersTBL_CustomerTBL">
+            <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+            <End Role="OrdersTBL" EntitySet="OrdersTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_OrdersTBL" Association="Self.FK_Payments_OrdersTBL">
+            <End Role="OrdersTBL" EntitySet="OrdersTBL" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductTBL_CategoryTBL" Association="Self.FK_ProductTBL_CategoryTBL">
+            <End Role="CategoryTBL" EntitySet="CategoryTBL" />
+            <End Role="ProductTBL" EntitySet="ProductTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTBL_CustomerTBL" Association="Self.FK_SalesTBL_CustomerTBL">
+            <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+            <End Role="SalesTBL" EntitySet="SalesTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTBL_ProductTBL" Association="Self.FK_SalesTBL_ProductTBL">
+            <End Role="ProductTBL" EntitySet="ProductTBL" />
+            <End Role="SalesTBL" EntitySet="SalesTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTBL_SalesRepresentativeTBL" Association="Self.FK_SalesTBL_SalesRepresentativeTBL">
+            <End Role="SalesRepresentativeTBL" EntitySet="SalesRepresentativeTBL" />
+            <End Role="SalesTBL" EntitySet="SalesTBL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SatisDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Campaigns">
+          <Key>
+            <PropertyRef Name="CompaignID" />
+          </Key>
+          <Property Name="CompaignID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompaignName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscountRate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CategoryTBL">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductTBL" Relationship="Self.FK_ProductTBL_CategoryTBL" FromRole="CategoryTBL" ToRole="ProductTBL" />
+        </EntityType>
+        <EntityType Name="CustomerTBL">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegistirationDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OrdersTBL" Relationship="Self.FK_OrdersTBL_CustomerTBL" FromRole="CustomerTBL" ToRole="OrdersTBL" />
+          <NavigationProperty Name="SalesTBL" Relationship="Self.FK_SalesTBL_CustomerTBL" FromRole="CustomerTBL" ToRole="SalesTBL" />
+        </EntityType>
+        <EntityType Name="InvetoryTransactionsTBL">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="TransactionTyppe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductTBL" Relationship="Self.FK_InvetoryTransactionsTBL_ProductTBL" FromRole="InvetoryTransactionsTBL" ToRole="ProductTBL" />
+          <Property Name="WareHouse" Type="Int32" />
+          <NavigationProperty Name="AmbarTBL" Relationship="SatisDBModel.FK_InvetoryTransactionsTBL_AmbarTBL" FromRole="InvetoryTransactionsTBL" ToRole="AmbarTBL" />
+        </EntityType>
+        <EntityType Name="OrdersTBL">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingDate" Type="DateTime" Precision="3" />
+          <Property Name="TrackingNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_OrdersTBL_CustomerTBL" FromRole="OrdersTBL" ToRole="CustomerTBL" />
+          <NavigationProperty Name="Payments" Relationship="SatisDBModel.FK_Payments_OrdersTBL" FromRole="OrdersTBL" ToRole="Payments" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrdersTBL" Relationship="SatisDBModel.FK_Payments_OrdersTBL" FromRole="Payments" ToRole="OrdersTBL" />
+        </EntityType>
+        <EntityType Name="ProductTBL">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="StockQuantity" Type="Int32" />
+          <Property Name="Desccription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CategoryTBL" Relationship="Self.FK_ProductTBL_CategoryTBL" FromRole="ProductTBL" ToRole="CategoryTBL" />
+          <NavigationProperty Name="InvetoryTransactionsTBL" Relationship="Self.FK_InvetoryTransactionsTBL_ProductTBL" FromRole="ProductTBL" ToRole="InvetoryTransactionsTBL" />
+          <NavigationProperty Name="SalesTBL" Relationship="Self.FK_SalesTBL_ProductTBL" FromRole="ProductTBL" ToRole="SalesTBL" />
+        </EntityType>
+        <EntityType Name="SalesRepresentativeTBL">
+          <Key>
+            <PropertyRef Name="SalesRepID" />
+          </Key>
+          <Property Name="SalesRepID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HireDate" Type="DateTime" Precision="3" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SalesTBL" Relationship="Self.FK_SalesTBL_SalesRepresentativeTBL" FromRole="SalesRepresentativeTBL" ToRole="SalesTBL" />
+        </EntityType>
+        <EntityType Name="SalesTBL">
+          <Key>
+            <PropertyRef Name="SaleID" />
+          </Key>
+          <Property Name="SaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="SaleDate" Type="DateTime" Precision="3" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShippingAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalesRapID" Type="Int32" />
+          <NavigationProperty Name="CustomerTBL" Relationship="Self.FK_SalesTBL_CustomerTBL" FromRole="SalesTBL" ToRole="CustomerTBL" />
+          <NavigationProperty Name="ProductTBL" Relationship="Self.FK_SalesTBL_ProductTBL" FromRole="SalesTBL" ToRole="ProductTBL" />
+          <NavigationProperty Name="SalesRepresentativeTBL" Relationship="Self.FK_SalesTBL_SalesRepresentativeTBL" FromRole="SalesTBL" ToRole="SalesRepresentativeTBL" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_ProductTBL_CategoryTBL">
+          <End Role="CategoryTBL" Type="Self.CategoryTBL" Multiplicity="0..1" />
+          <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryTBL">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="ProductTBL">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersTBL_CustomerTBL">
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
+          <End Role="OrdersTBL" Type="Self.OrdersTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTBL">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="OrdersTBL">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTBL_CustomerTBL">
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
+          <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTBL">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="SalesTBL">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvetoryTransactionsTBL_ProductTBL">
+          <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="0..1" />
+          <End Role="InvetoryTransactionsTBL" Type="Self.InvetoryTransactionsTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTBL">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="InvetoryTransactionsTBL">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTBL_ProductTBL">
+          <End Role="ProductTBL" Type="Self.ProductTBL" Multiplicity="0..1" />
+          <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTBL">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="SalesTBL">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesTBL_SalesRepresentativeTBL">
+          <End Role="SalesRepresentativeTBL" Type="Self.SalesRepresentativeTBL" Multiplicity="0..1" />
+          <End Role="SalesTBL" Type="Self.SalesTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesRepresentativeTBL">
+              <PropertyRef Name="SalesRepID" />
+            </Principal>
+            <Dependent Role="SalesTBL">
+              <PropertyRef Name="SalesRapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SatisDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Campaigns" EntityType="Self.Campaigns" />
+          <EntitySet Name="CategoryTBL" EntityType="Self.CategoryTBL" />
+          <EntitySet Name="CustomerTBL" EntityType="Self.CustomerTBL" />
+          <EntitySet Name="InvetoryTransactionsTBL" EntityType="Self.InvetoryTransactionsTBL" />
+          <EntitySet Name="OrdersTBL" EntityType="Self.OrdersTBL" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" />
+          <EntitySet Name="ProductTBL" EntityType="Self.ProductTBL" />
+          <EntitySet Name="SalesRepresentativeTBL" EntityType="Self.SalesRepresentativeTBL" />
+          <EntitySet Name="SalesTBL" EntityType="Self.SalesTBL" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_ProductTBL_CategoryTBL" Association="Self.FK_ProductTBL_CategoryTBL">
+            <End Role="CategoryTBL" EntitySet="CategoryTBL" />
+            <End Role="ProductTBL" EntitySet="ProductTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersTBL_CustomerTBL" Association="Self.FK_OrdersTBL_CustomerTBL">
+            <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+            <End Role="OrdersTBL" EntitySet="OrdersTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTBL_CustomerTBL" Association="Self.FK_SalesTBL_CustomerTBL">
+            <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+            <End Role="SalesTBL" EntitySet="SalesTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvetoryTransactionsTBL_ProductTBL" Association="Self.FK_InvetoryTransactionsTBL_ProductTBL">
+            <End Role="ProductTBL" EntitySet="ProductTBL" />
+            <End Role="InvetoryTransactionsTBL" EntitySet="InvetoryTransactionsTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTBL_ProductTBL" Association="Self.FK_SalesTBL_ProductTBL">
+            <End Role="ProductTBL" EntitySet="ProductTBL" />
+            <End Role="SalesTBL" EntitySet="SalesTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesTBL_SalesRepresentativeTBL" Association="Self.FK_SalesTBL_SalesRepresentativeTBL">
+            <End Role="SalesRepresentativeTBL" EntitySet="SalesRepresentativeTBL" />
+            <End Role="SalesTBL" EntitySet="SalesTBL" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="SatisDBModel.Users" />
+          <EntitySet Name="UserInfo" EntityType="SatisDBModel.UserInfo" />
+          <EntitySet Name="AmbarTBL" EntityType="SatisDBModel.AmbarTBL" />
+          <AssociationSet Name="FK_InvetoryTransactionsTBL_AmbarTBL" Association="SatisDBModel.FK_InvetoryTransactionsTBL_AmbarTBL">
+            <End Role="AmbarTBL" EntitySet="AmbarTBL" />
+            <End Role="InvetoryTransactionsTBL" EntitySet="InvetoryTransactionsTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_OrdersTBL" Association="SatisDBModel.FK_Payments_OrdersTBL">
+            <End Role="OrdersTBL" EntitySet="OrdersTBL" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserLast" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AmbarTBL">
+          <Key>
+            <PropertyRef Name="AmbarId" />
+          </Key>
+          <Property Name="AmbarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Konum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kapasite" Type="Int32" />
+          <Property Name="Sorumlu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InvetoryTransactionsTBL" Relationship="SatisDBModel.FK_InvetoryTransactionsTBL_AmbarTBL" FromRole="AmbarTBL" ToRole="InvetoryTransactionsTBL" />
+        </EntityType>
+        <Association Name="FK_InvetoryTransactionsTBL_AmbarTBL">
+          <End Type="SatisDBModel.AmbarTBL" Role="AmbarTBL" Multiplicity="0..1" />
+          <End Type="SatisDBModel.InvetoryTransactionsTBL" Role="InvetoryTransactionsTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AmbarTBL">
+              <PropertyRef Name="AmbarId" />
+            </Principal>
+            <Dependent Role="InvetoryTransactionsTBL">
+              <PropertyRef Name="WareHouse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_OrdersTBL">
+          <End Type="SatisDBModel.OrdersTBL" Role="OrdersTBL" Multiplicity="1" />
+          <End Type="SatisDBModel.Payments" Role="Payments" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OrdersTBL">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="PaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SatisDBModelStoreContainer" CdmEntityContainer="SatisDBEntities2">
+          <EntitySetMapping Name="Campaigns">
+            <EntityTypeMapping TypeName="SatisDBModel.Campaigns">
+              <MappingFragment StoreEntitySet="Campaigns">
+                <ScalarProperty Name="CompaignID" ColumnName="CompaignID" />
+                <ScalarProperty Name="CompaignName" ColumnName="CompaignName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="DiscountRate" ColumnName="DiscountRate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryTBL">
+            <EntityTypeMapping TypeName="SatisDBModel.CategoryTBL">
+              <MappingFragment StoreEntitySet="CategoryTBL">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerTBL">
+            <EntityTypeMapping TypeName="SatisDBModel.CustomerTBL">
+              <MappingFragment StoreEntitySet="CustomerTBL">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="RegistirationDate" ColumnName="RegistirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvetoryTransactionsTBL">
+            <EntityTypeMapping TypeName="SatisDBModel.InvetoryTransactionsTBL">
+              <MappingFragment StoreEntitySet="InvetoryTransactionsTBL">
+                <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TransactionTyppe" ColumnName="TransactionTyppe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersTBL">
+            <EntityTypeMapping TypeName="SatisDBModel.OrdersTBL">
+              <MappingFragment StoreEntitySet="OrdersTBL">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="ShippingDate" ColumnName="ShippingDate" />
+                <ScalarProperty Name="TrackingNumber" ColumnName="TrackingNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="SatisDBModel.Payments">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTBL">
+            <EntityTypeMapping TypeName="SatisDBModel.ProductTBL">
+              <MappingFragment StoreEntitySet="ProductTBL">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
+                <ScalarProperty Name="Desccription" ColumnName="Desccription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesRepresentativeTBL">
+            <EntityTypeMapping TypeName="SatisDBModel.SalesRepresentativeTBL">
+              <MappingFragment StoreEntitySet="SalesRepresentativeTBL">
+                <ScalarProperty Name="SalesRepID" ColumnName="SalesRepID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesTBL">
+            <EntityTypeMapping TypeName="SatisDBModel.SalesTBL">
+              <MappingFragment StoreEntitySet="SalesTBL">
+                <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="ShippingAddress" ColumnName="ShippingAddress" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SalesRapID" ColumnName="SalesRapID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SatisDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SatisDBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="SatisDBModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="UserLast" ColumnName="UserLast" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AmbarTBL">
+            <EntityTypeMapping TypeName="SatisDBModel.AmbarTBL">
+              <MappingFragment StoreEntitySet="AmbarTBL">
+                <ScalarProperty Name="Sorumlu" ColumnName="Sorumlu" />
+                <ScalarProperty Name="Kapasite" ColumnName="Kapasite" />
+                <ScalarProperty Name="Konum" ColumnName="Konum" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="AmbarId" ColumnName="AmbarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
